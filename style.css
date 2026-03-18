@@ -1,0 +1,91 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: #c59d5f;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: #1a0f13;
+  color: gold;
+  padding: 40px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header .slogan {
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* Sections */
+.section {
+  padding: 40px 0;
+  background: #fff;
+}
+
+.section:nth-of-type(even) {
+  background: #f9f9f9;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a0f13;
+}
+
+.section p {
+  margin-bottom: 15px;
+}
+
+.service {
+  margin-bottom: 20px;
+}
+
+/* Why Us */
+#why-us ul {
+  list-style: disc;
+  padding-left: 40px;
+}
+
+#why-us ul li {
+  margin-bottom: 10px;
+}
+
+/* Contact */
+#contact a {
+  color: #1a0f13;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: #1a0f13;
+  color: gold;
+  text-align: center;
+  padding: 20px 0;
+}
+#chat-input button#voice-btn {
+  background: #4da6ff;
+  color: black;
+  margin-left: 5px;
+  font-size: 1.2rem;
+}
