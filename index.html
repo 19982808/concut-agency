@@ -7,8 +7,8 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,90 +23,85 @@
 </header>
 
 <!-- ABOUT -->
-<section class="section" onclick="toggleAbout(this)" data-aos="fade-up">
+<section class="section" onclick="toggleAbout(this)">
   <h2>About Us</h2>
-  <p>We help businesses establish, grow, and scale across Africa.</p>
+  <p>We help businesses grow across Africa.</p>
 
   <p class="hidden-text">
-    Concoct Consulting Group provides strategic advisory, market entry support,
-    and business development services tailored for African markets with a global perspective.
+    We provide strategic consulting, market entry, and business development
+    tailored to African economies with global standards.
   </p>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section dark">
-  <h2 data-aos="fade-up">Our Services</h2>
+  <h2>Our Services</h2>
 
   <div class="grid">
     <div class="card" onclick="toggleCard(this)">
       <h3>Business Setup</h3>
-      <p class="hidden-text">Company registration, licensing, and compliance handled fully.</p>
+      <p class="hidden-text">Full registration, compliance and licensing support.</p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <h3>Market Entry</h3>
-      <p class="hidden-text">Expand into African markets with strong strategy and local insight.</p>
+      <p class="hidden-text">Expand strategically into African markets.</p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
-      <h3>Trade Missions</h3>
-      <p class="hidden-text">Connect with key partners through organized business trips.</p>
-    </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>Market Intelligence</h3>
-      <p class="hidden-text">Data-driven insights to guide your decisions.</p>
-    </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>Franchising</h3>
-      <p class="hidden-text">Expand your brand across Africa with scalable models.</p>
-    </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>Accounting & Tax</h3>
-      <p class="hidden-text">Stay compliant and financially optimized.</p>
+      <h3>Consulting</h3>
+      <p class="hidden-text">Custom business growth strategies.</p>
     </div>
   </div>
 </section>
 
 <!-- WHY US -->
-<section class="section" data-aos="fade-up">
+<section class="section">
   <h2>Why Us</h2>
 
   <div class="grid">
     <div class="card" onclick="toggleCard(this)">
       <h3>Global Expertise</h3>
-      <p class="hidden-text">International experience tailored to Africa.</p>
+      <p class="hidden-text">International consulting experience adapted to Africa.</p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <h3>Local Knowledge</h3>
-      <p class="hidden-text">Deep understanding of African markets.</p>
-    </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>Tailored Solutions</h3>
-      <p class="hidden-text">Custom strategies for every client.</p>
+      <p class="hidden-text">Deep understanding of African business environments.</p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <h3>End-to-End Support</h3>
-      <p class="hidden-text">From entry to expansion.</p>
+      <p class="hidden-text">From setup to scaling your business.</p>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- BOOKING -->
 <section class="section dark">
   <h2>Book a Consultation</h2>
 
-  <form id="contact-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message"></textarea>
-    <button type="submit">Submit</button>
-  </form>
+  <div class="form-container">
+    <form id="contact-form">
+
+      <div class="input-group">
+        <input type="text" id="name" required>
+        <label>Your Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" required>
+        <label>Your Email</label>
+      </div>
+
+      <div class="input-group">
+        <textarea id="message" required></textarea>
+        <label>Your Message</label>
+      </div>
+
+      <button type="submit">Book via WhatsApp</button>
+    </form>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -115,27 +110,22 @@
 </footer>
 
 <!-- CHAT BUTTON -->
-<div id="chat-toggle">💬</div>
+<div id="chat-toggle">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616554.png">
+</div>
 
 <!-- CHAT -->
 <div id="chat-widget" class="hidden">
-  <div id="chat-header">ConsultAI</div>
+  <div id="chat-header">🐒 ConsultAI</div>
   <div id="chat-body"></div>
 
   <div id="chat-input">
-    <input id="chat-message" placeholder="Ask about our services..." />
+    <input id="chat-message" placeholder="Ask about Africa business..." />
     <button onclick="sendChatMessage()">Send</button>
-    <button id="voice-btn">🎤</button>
   </div>
 </div>
 
-<!-- JS -->
 <script src="script.js"></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
 
 </body>
 </html>
