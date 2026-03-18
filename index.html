@@ -4,10 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Concoct Consulting Group</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 </head>
+
 <body>
 
+<!-- HERO -->
 <header class="hero">
   <div class="overlay">
     <h1>Concoct Consulting Group</h1>
@@ -16,32 +23,34 @@
   </div>
 </header>
 
-<section class="section">
+<!-- ABOUT -->
+<section class="section" data-aos="fade-up">
   <h2>About Us</h2>
   <p>
-    Concoct Consulting Group is a dynamic international consulting firm helping businesses
-    establish, expand, and thrive across East Africa. We provide strategic, innovative,
-    and sustainable business solutions for global success.
+    Concoct Consulting Group is an international consulting firm helping businesses
+    establish, expand and succeed across East Africa with strategic and innovative solutions.
   </p>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="section dark">
-  <h2>Our Services</h2>
+  <h2 data-aos="fade-up">Our Services</h2>
 
   <div class="grid">
-    <div class="card">Business Setup</div>
-    <div class="card">Business Development</div>
-    <div class="card">Market Entry</div>
-    <div class="card">Trade Missions</div>
-    <div class="card">Market Intelligence</div>
-    <div class="card">Business Coaching</div>
-    <div class="card">Franchising</div>
-    <div class="card">Accounting & Tax</div>
-    <div class="card">Real Estate</div>
+    <div class="card" data-aos="zoom-in">Business Setup</div>
+    <div class="card" data-aos="zoom-in">Business Development</div>
+    <div class="card" data-aos="zoom-in">Market Entry</div>
+    <div class="card" data-aos="zoom-in">Trade Missions</div>
+    <div class="card" data-aos="zoom-in">Market Intelligence</div>
+    <div class="card" data-aos="zoom-in">Business Coaching</div>
+    <div class="card" data-aos="zoom-in">Franchising</div>
+    <div class="card" data-aos="zoom-in">Accounting & Tax</div>
+    <div class="card" data-aos="zoom-in">Real Estate</div>
   </div>
 </section>
 
-<section class="section">
+<!-- WHY US -->
+<section class="section" data-aos="fade-up">
   <h2>Why Us</h2>
   <div class="grid">
     <div class="card">Global Expertise</div>
@@ -52,13 +61,24 @@
   </div>
 </section>
 
-<section class="section dark">
-  <h2>Contact</h2>
-  <p>Nairobi Office, Ushuru Pension Plaza</p>
-  <p>Email: info@concoctconsulting.com</p>
+<!-- CONTACT FORM -->
+<section class="section dark" data-aos="fade-up">
+  <h2>Book a Consultation</h2>
+
+  <form id="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
 </section>
 
-<!-- Chat Widget -->
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Concoct Consulting Group</p>
+</footer>
+
+<!-- CHAT WIDGET -->
 <div id="chat-widget">
   <div id="chat-header">ConsultAI</div>
   <div id="chat-body"></div>
@@ -69,6 +89,16 @@
   </div>
 </div>
 
+<!-- SCRIPTS -->
 <script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
 </body>
 </html>
