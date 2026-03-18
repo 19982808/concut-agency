@@ -1,6 +1,7 @@
-margin: 0;
+body {
+  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #0d0d0d;
+  background: #0b0b0b;
   color: white;
 }
 
@@ -8,7 +9,7 @@ margin: 0;
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-              url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
+              url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
   background-size: cover;
   display: flex;
   align-items: center;
@@ -17,12 +18,8 @@ margin: 0;
 }
 
 .overlay h1 {
-  font-size: 3rem;
   color: gold;
-}
-
-.tagline {
-  margin: 10px 0;
+  font-size: 3rem;
 }
 
 .btn {
@@ -30,13 +27,13 @@ margin: 0;
   color: black;
   padding: 12px 25px;
   border-radius: 30px;
-  text-decoration: none;
 }
 
 /* SECTIONS */
 .section {
   padding: 60px 20px;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .dark {
@@ -56,11 +53,117 @@ margin: 0;
   padding: 25px;
   border-radius: 15px;
   border: 1px solid rgba(255,215,0,0.2);
-  transition: 0.3s;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
+  transform: scale(1.05);
   background: gold;
   color: black;
-  transform: translateY(-5px);
+}
+
+/* EXPAND */
+.hidden-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.card.active .hidden-text,
+.section.active .hidden-text {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* FORM */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 12px;
+  background: #2a1016;
+  border: none;
+  color: white;
+}
+
+button {
+  background: gold;
+  border: none;
+  padding: 12px;
+}
+
+/* CHAT BUTTON */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: gold;
+  color: black;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* CHAT */
+#chat-widget {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background: #12070a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+#chat-header {
+  background: gold;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+#chat-body {
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* CHAT MESSAGES */
+.message {
+  margin: 5px 0;
+  display: flex;
+}
+
+.user {
+  justify-content: flex-end;
+}
+
+.ai {
+  justify-content: flex-start;
+}
+
+.bubble {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user .bubble {
+  background: #4da6ff;
+}
+
+.ai .bubble {
+  background: gold;
+  color: black;
 }
