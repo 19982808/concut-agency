@@ -54,3 +54,6 @@ document.getElementById("contact-form").onsubmit = function(e) {
   const url = `https://wa.me/254757902314?text=Hello, my name is ${name}. ${message}`;
   window.open(url, "_blank");
 };
+function getDirections() {
+  window.open("https://www.google.com/maps/dir/?api=1&destination=Upper+Hill+Nairobi", "_blank");
+}
