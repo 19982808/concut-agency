@@ -1,42 +1,34 @@
 const chatBody = document.getElementById("chat-body");
 const chatInput = document.getElementById("chat-message");
 const voiceBtn = document.getElementById("voice-btn");
+const chatToggle = document.getElementById("chat-toggle");
+const chatWidget = document.getElementById("chat-widget");
 
-// Enter key
+chatToggle.addEventListener("click", () => {
+  chatWidget.classList.toggle("hidden");
+});
+
 chatInput.addEventListener("keypress", function(e) {
   if (e.key === "Enter") sendChatMessage();
 });
 
-// Voice recognition
-let recognition;
-if ('webkitSpeechRecognition' in window) {
-  recognition = new webkitSpeechRecognition();
-  recognition.lang = 'en-US';
+let conversation = [];
 
-  recognition.onresult = function(event) {
-    const transcript = event.results[0][0].transcript;
-    chatInput.value = transcript;
-    sendChatMessage();
-  };
-}
-
-voiceBtn.addEventListener("click", () => {
-  if (recognition) recognition.start();
-});
-
-// AI logic (still demo — real GPT needs backend)
 function getAIResponse(message) {
   const msg = message.toLowerCase();
 
-  if (msg.includes("business")) return "Focus on growth, customers, and scaling.";
-  if (msg.includes("marketing")) return "Consistency and value-driven content win.";
-  if (msg.includes("money")) return "Increase margins and reduce waste.";
-  if (msg.includes("startup")) return "Start small, validate, then scale.";
+  if (msg.includes("services"))
+    return "We offer business setup, market entry, trade missions, franchising, accounting, and strategic consulting.";
 
-  return "Our consultants recommend a strategic, data-driven approach.";
+  if (msg.includes("africa"))
+    return "We specialize in helping businesses grow and expand across African markets.";
+
+  if (msg.includes("why"))
+    return "We combine global expertise with local African knowledge.";
+
+  return "We provide tailored consulting solutions for business growth in Africa.";
 }
 
-// Create message
 function createMessage(text, sender) {
   const msgDiv = document.createElement("div");
   msgDiv.className = `message ${sender}`;
@@ -49,11 +41,8 @@ function createMessage(text, sender) {
   chatBody.appendChild(msgDiv);
 
   chatBody.scrollTop = chatBody.scrollHeight;
-
-  if (sender === "ai") speak(text);
 }
 
-// Send message
 function sendChatMessage() {
   const text = chatInput.value.trim();
   if (!text) return;
@@ -62,8 +51,8 @@ function sendChatMessage() {
   chatInput.value = "";
 
   const typing = document.createElement("div");
-  typing.className = "message ai typing";
-  typing.innerText = "AI is typing...";
+  typing.className = "message ai";
+  typing.innerText = "Typing...";
   chatBody.appendChild(typing);
 
   setTimeout(() => {
@@ -73,15 +62,20 @@ function sendChatMessage() {
   }, 1000);
 }
 
-// Speech
-function speak(text) {
-  if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    speechSynthesis.speak(utterance);
-  }
+// CLICKABLE CARDS
+function toggleCard(card) {
+  document.querySelectorAll(".card").forEach(c => {
+    if (c !== card) c.classList.remove("active");
+  });
+
+  card.classList.toggle("active");
 }
 
-// Form
+function toggleAbout(section) {
+  section.classList.toggle("active");
+}
+
+// FORM
 document.getElementById("contact-form").addEventListener("submit", function(e) {
   e.preventDefault();
   alert("Consultation request sent!");
