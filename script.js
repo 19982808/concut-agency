@@ -2,57 +2,45 @@ const chatBody = document.getElementById("chat-body");
 const chatInput = document.getElementById("chat-message");
 const voiceBtn = document.getElementById("voice-btn");
 
-// Press Enter to send
-chatInput.addEventListener("keypress", function(e) {
-  if (e.key === "Enter") sendChatMessage();
-});
+// Prevent errors if elements not loaded
+if (chatInput) {
+  chatInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") sendChatMessage();
+  });
+}
 
-// Voice input setup
+// Voice recognition
 let recognition;
 if ('webkitSpeechRecognition' in window) {
   recognition = new webkitSpeechRecognition();
   recognition.lang = 'en-US';
-  recognition.continuous = false;
-  recognition.interimResults = false;
 
   recognition.onresult = function(event) {
     const transcript = event.results[0][0].transcript;
     chatInput.value = transcript;
     sendChatMessage();
   };
-} else {
-  voiceBtn.disabled = true;
-  voiceBtn.title = "Voice not supported in this browser";
 }
 
-voiceBtn.addEventListener("click", () => {
-  if (recognition) recognition.start();
-});
+if (voiceBtn) {
+  voiceBtn.addEventListener("click", () => {
+    if (recognition) recognition.start();
+  });
+}
 
-// AI Response Logic
+// AI logic
 function getAIResponse(message) {
   const msg = message.toLowerCase();
 
-  if (msg.includes("grow") || msg.includes("business")) {
-    return "To grow your business, focus on customer acquisition, retention, and scaling profitable areas. Track data and reinvest wisely.";
-  }
+  if (msg.includes("business")) return "Focus on growth, customer retention, and scaling.";
+  if (msg.includes("marketing")) return "Consistency + content + targeting = results.";
+  if (msg.includes("money")) return "Cut costs and increase high-margin services.";
+  if (msg.includes("startup")) return "Start small, validate fast, scale smart.";
 
-  if (msg.includes("marketing")) {
-    return "Focus on your target audience, create valuable content, and stay consistent. Marketing is about trust and visibility.";
-  }
-
-  if (msg.includes("money") || msg.includes("profit")) {
-    return "Increase profit by optimizing pricing, reducing waste, and focusing on high-margin offerings.";
-  }
-
-  if (msg.includes("startup")) {
-    return "Validate your idea first, build a simple version, and improve based on real feedback.";
-  }
-
-  return "As your AI consultant, I recommend analyzing your situation, identifying opportunities, and executing a focused strategy.";
+  return "I recommend analyzing your business and executing a focused growth strategy.";
 }
 
-// Message display
+// Create message
 function createMessage(text, sender) {
   const msgDiv = document.createElement("div");
   msgDiv.className = `message ${sender}`;
@@ -66,38 +54,35 @@ function createMessage(text, sender) {
 
   chatBody.scrollTop = chatBody.scrollHeight;
 
-  if (sender === "ai") speakText(text); // Speak AI responses
+  if (sender === "ai") speak(text);
 }
 
-// Send message function
+// Send message
 function sendChatMessage() {
+  if (!chatInput || !chatBody) return;
+
   const text = chatInput.value.trim();
   if (!text) return;
 
   createMessage(text, "user");
   chatInput.value = "";
 
-  // Typing indicator
-  const typingDiv = document.createElement("div");
-  typingDiv.className = "message ai typing";
-  typingDiv.innerText = "AI is typing...";
-  chatBody.appendChild(typingDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
+  const typing = document.createElement("div");
+  typing.className = "message ai typing";
+  typing.innerText = "AI is typing...";
+  chatBody.appendChild(typing);
 
   setTimeout(() => {
-    chatBody.removeChild(typingDiv);
+    typing.remove();
     const reply = getAIResponse(text);
     createMessage(reply, "ai");
   }, 1000);
 }
 
-// Text-to-Speech
-function speakText(text) {
+// Speak
+function speak(text) {
   if ('speechSynthesis' in window) {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
-    utterance.pitch = 1;
-    utterance.rate = 1;
     speechSynthesis.speak(utterance);
   }
 }
