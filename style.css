@@ -1,103 +1,110 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0b0b0b;
-  color: white;
+  font-family: 'Poppins', sans-serif;
+  background: #0c0806;
+  color: #f5e6c8;
+}
+
+/* BACKGROUND TEXTURE */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  opacity: 0.05;
+  z-index: -1;
 }
 
 /* HERO */
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-              url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
+  background: linear-gradient(rgba(60,20,10,0.7), rgba(10,5,5,0.95)),
+              url('https://images.unsplash.com/photo-1547970810-dc1eac37d174');
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .overlay h1 {
-  color: gold;
-  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #d4af37;
 }
 
+.overlay p {
+  color: #f2d16b;
+}
+
+/* BUTTON */
 .btn {
-  background: gold;
-  color: black;
+  background: linear-gradient(45deg, #d4af37, #a67c00);
   padding: 12px 25px;
   border-radius: 30px;
+  color: black;
 }
 
 /* SECTIONS */
 .section {
-  padding: 60px 20px;
+  padding: 70px 20px;
   text-align: center;
-  transition: all 0.3s ease;
 }
 
 .dark {
-  background: #1a0f13;
+  background: #140b08;
 }
 
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
 /* CARDS */
 .card {
-  background: #12070a;
+  background: linear-gradient(145deg, #1b0f0a, #2a1812);
   padding: 25px;
-  border-radius: 15px;
-  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 16px;
+  border-left: 4px solid #d4af37;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.4s;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  background: gold;
-  color: black;
+  transform: translateY(-8px);
+}
+
+.card h3 {
+  font-family: 'Playfair Display';
+  color: #d4af37;
 }
 
 /* EXPAND */
 .hidden-text {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.4s ease;
+  display: none;
 }
 
 .card.active .hidden-text,
 .section.active .hidden-text {
-  max-height: 200px;
-  opacity: 1;
+  display: block;
   margin-top: 10px;
 }
 
 /* FORM */
-form {
+.form-container {
   max-width: 500px;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 30px;
+  background: rgba(30,15,10,0.9);
+  border-radius: 20px;
 }
 
 input, textarea {
+  width: 100%;
   padding: 12px;
-  background: #2a1016;
-  border: none;
+  background: transparent;
+  border: 1px solid gold;
   color: white;
-}
-
-button {
-  background: gold;
-  border: none;
-  padding: 12px;
 }
 
 /* CHAT BUTTON */
@@ -105,65 +112,38 @@ button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: gold;
-  color: black;
-  padding: 15px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
+  background: linear-gradient(145deg, #d4af37, #8b6b1f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: breathe 2s infinite;
   cursor: pointer;
+}
+
+#chat-toggle img {
+  width: 40px;
 }
 
 /* CHAT */
 #chat-widget {
   position: fixed;
-  bottom: 80px;
+  bottom: 100px;
   right: 20px;
   width: 300px;
-  background: #12070a;
+  background: #1b0f0a;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .hidden {
   display: none;
 }
 
-#chat-header {
-  background: gold;
-  color: black;
-  text-align: center;
-  padding: 10px;
-}
-
-#chat-body {
-  height: 200px;
-  overflow-y: auto;
-  padding: 10px;
-}
-
-/* CHAT MESSAGES */
-.message {
-  margin: 5px 0;
-  display: flex;
-}
-
-.user {
-  justify-content: flex-end;
-}
-
-.ai {
-  justify-content: flex-start;
-}
-
-.bubble {
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.user .bubble {
-  background: #4da6ff;
-}
-
-.ai .bubble {
-  background: gold;
-  color: black;
+/* ANIMATION */
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
