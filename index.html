@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Concoct Consulting Group</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- AOS Animation -->
+  <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 </head>
 
@@ -18,17 +17,19 @@
 <header class="hero">
   <div class="overlay">
     <h1>Concoct Consulting Group</h1>
-    <p class="tagline">Empowering Global Excellence</p>
+    <p>Empowering African Business Excellence</p>
     <a href="#services" class="btn">Explore Services</a>
   </div>
 </header>
 
 <!-- ABOUT -->
-<section class="section" data-aos="fade-up">
+<section class="section" onclick="toggleAbout(this)" data-aos="fade-up">
   <h2>About Us</h2>
-  <p>
-    Concoct Consulting Group is an international consulting firm helping businesses
-    establish, expand and succeed across East Africa with strategic and innovative solutions.
+  <p>We help businesses establish, grow, and scale across Africa.</p>
+
+  <p class="hidden-text">
+    Concoct Consulting Group provides strategic advisory, market entry support,
+    and business development services tailored for African markets with a global perspective.
   </p>
 </section>
 
@@ -37,32 +38,67 @@
   <h2 data-aos="fade-up">Our Services</h2>
 
   <div class="grid">
-    <div class="card" data-aos="zoom-in">Business Setup</div>
-    <div class="card" data-aos="zoom-in">Business Development</div>
-    <div class="card" data-aos="zoom-in">Market Entry</div>
-    <div class="card" data-aos="zoom-in">Trade Missions</div>
-    <div class="card" data-aos="zoom-in">Market Intelligence</div>
-    <div class="card" data-aos="zoom-in">Business Coaching</div>
-    <div class="card" data-aos="zoom-in">Franchising</div>
-    <div class="card" data-aos="zoom-in">Accounting & Tax</div>
-    <div class="card" data-aos="zoom-in">Real Estate</div>
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Business Setup</h3>
+      <p class="hidden-text">Company registration, licensing, and compliance handled fully.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Market Entry</h3>
+      <p class="hidden-text">Expand into African markets with strong strategy and local insight.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Trade Missions</h3>
+      <p class="hidden-text">Connect with key partners through organized business trips.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Market Intelligence</h3>
+      <p class="hidden-text">Data-driven insights to guide your decisions.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Franchising</h3>
+      <p class="hidden-text">Expand your brand across Africa with scalable models.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Accounting & Tax</h3>
+      <p class="hidden-text">Stay compliant and financially optimized.</p>
+    </div>
   </div>
 </section>
 
 <!-- WHY US -->
 <section class="section" data-aos="fade-up">
   <h2>Why Us</h2>
+
   <div class="grid">
-    <div class="card">Global Expertise</div>
-    <div class="card">Local Knowledge</div>
-    <div class="card">Tailored Solutions</div>
-    <div class="card">End-to-End Support</div>
-    <div class="card">Proven Results</div>
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Global Expertise</h3>
+      <p class="hidden-text">International experience tailored to Africa.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Local Knowledge</h3>
+      <p class="hidden-text">Deep understanding of African markets.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Tailored Solutions</h3>
+      <p class="hidden-text">Custom strategies for every client.</p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>End-to-End Support</h3>
+      <p class="hidden-text">From entry to expansion.</p>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT FORM -->
-<section class="section dark" data-aos="fade-up">
+<!-- CONTACT -->
+<section class="section dark">
   <h2>Book a Consultation</h2>
 
   <form id="contact-form">
@@ -78,26 +114,27 @@
   <p>© 2026 Concoct Consulting Group</p>
 </footer>
 
-<!-- CHAT WIDGET -->
-<div id="chat-widget">
+<!-- CHAT BUTTON -->
+<div id="chat-toggle">💬</div>
+
+<!-- CHAT -->
+<div id="chat-widget" class="hidden">
   <div id="chat-header">ConsultAI</div>
   <div id="chat-body"></div>
+
   <div id="chat-input">
-    <input id="chat-message" placeholder="Ask a business question..." />
+    <input id="chat-message" placeholder="Ask about our services..." />
     <button onclick="sendChatMessage()">Send</button>
     <button id="voice-btn">🎤</button>
   </div>
 </div>
 
-<!-- SCRIPTS -->
+<!-- JS -->
 <script src="script.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
+  AOS.init({ duration: 1000, once: true });
 </script>
 
 </body>
