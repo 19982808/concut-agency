@@ -123,7 +123,7 @@ document.getElementById("contact-form").onsubmit = function(e) {
   const name = document.getElementById("name").value;
   const message = document.getElementById("message").value;
 
-  const url = `https://wa.me/254757902314?text=Hello, my name is ${name}. ${message}`;
+  const url = `https://wa.me/254721500827?text=Hello, my name is ${name}. ${message}`;
   window.open(url, "_blank");
 };
 
