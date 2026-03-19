@@ -169,3 +169,100 @@ input:focus, textarea:focus {
   }
 
 }
+/* ========================= */
+/* 🌍 AFRICAN LUXURY UPGRADE */
+/* ========================= */
+
+/* WARM AFRICAN GRADIENT LAYER */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(139,69,19,0.2), transparent 60%),
+              radial-gradient(circle at bottom, rgba(212,175,55,0.15), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* HERO ENHANCEMENT */
+.hero {
+  background: linear-gradient(rgba(40,15,5,0.8), rgba(10,5,5,0.95)),
+              url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da');
+  background-size: cover;
+}
+
+/* TEXTURE OVERLAY */
+.section {
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/african-pattern.png');
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* GOLD HEADINGS STRONGER */
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: #e6c76e;
+  letter-spacing: 1px;
+}
+
+/* CARDS = AFRICAN WOOD FEEL */
+.card {
+  background: linear-gradient(145deg, #1a0c05, #2e1a10);
+  border-left: 5px solid #caa74a;
+}
+
+/* CARD HOVER = GLOW */
+.card:hover {
+  box-shadow: 0 0 25px rgba(202,167,74,0.25);
+}
+
+/* BUTTON = GOLD METAL LOOK */
+.btn {
+  background: linear-gradient(45deg, #caa74a, #8b6b1f);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* CHAT = MATCH BRAND */
+#chat-widget {
+  background: linear-gradient(145deg, #1a0c05, #2e1a10);
+  border: 1px solid rgba(202,167,74,0.2);
+}
+
+/* CHAT HEADER */
+#chat-header {
+  background: linear-gradient(45deg, #caa74a, #7a5a1a);
+  color: black;
+}
+
+/* CHAT TEXT */
+#chat-body {
+  color: #f5e6c8;
+}
+
+/* MAP = LESS HARSH */
+.dark-map iframe {
+  filter: sepia(30%) contrast(90%) brightness(90%);
+}
+
+/* FORM = SOFTER */
+.form-container {
+  background: linear-gradient(145deg, #1a0c05, #2e1a10);
+  border: 1px solid rgba(202,167,74,0.2);
+}
+
+/* INPUTS */
+input, textarea {
+  border: 1px solid #caa74a;
+}
+
+/* GOLD LINE UNDER TITLES */
+.section h2::after {
+  background: linear-gradient(45deg, #caa74a, #8b6b1f);
+}
