@@ -103,6 +103,8 @@
     </form>
   </div>
 </section>
+
+<!-- LOCATION -->
 <section class="section location luxury">
   <h2>Our Presence</h2>
 
@@ -110,9 +112,7 @@
 
   <div class="location-container">
 
-    <!-- LEFT -->
     <div class="location-info">
-
       <h3>📍 Nairobi, Kenya</h3>
       <p>Upper Hill Business District</p>
 
@@ -133,17 +133,14 @@
         <button onclick="getDirections()">Get Directions</button>
       </div>
 
-      <!-- SOCIAL -->
       <div class="socials">
         <a href="#">🌐</a>
         <a href="#">💼</a>
         <a href="#">📷</a>
         <a href="#">🐦</a>
       </div>
-
     </div>
 
-    <!-- RIGHT -->
     <div class="map dark-map">
       <iframe 
         src="https://maps.google.com/maps?q=Upper%20Hill%20Nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed">
@@ -152,25 +149,37 @@
 
   </div>
 </section>
+
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Concoct Consulting Group</p>
 </footer>
 
-<!-- CHAT BUTTON -->
-<div id="chat-toggle">
+<!-- 🐒 FLOATING CHAT BUTTON -->
+<div id="chat-toggle" title="Talk to AI">
   <img src="https://cdn-icons-png.flaticon.com/512/616/616554.png">
 </div>
 
-<!-- CHAT -->
+<!-- 🤖 CHAT WIDGET -->
 <div id="chat-widget" class="hidden">
-  <div id="chat-header">🐒 ConsultAI</div>
+
+  <div id="chat-header">
+    🐒 ConsultAI
+    <span id="close-chat" onclick="toggleChat()">✖</span>
+  </div>
+
   <div id="chat-body"></div>
 
+  <!-- 🔥 UPDATED INPUT WITH MIC -->
   <div id="chat-input">
-    <input id="chat-message" placeholder="Ask about Africa business..." />
-    <button onclick="sendChatMessage()">Send</button>
+    <input id="chat-message" placeholder="Ask about business in Africa..." />
+
+    <button onclick="sendChatMessage()">➤</button>
+
+    <!-- 🎤 MICROPHONE -->
+    <button id="mic-btn" title="Speak">🎤</button>
   </div>
+
 </div>
 
 <script src="script.js"></script>
